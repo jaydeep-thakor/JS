@@ -1,0 +1,11 @@
+.box{
+    height: 200px;
+    width: 200px;
+    background-color: peachpuff;
+    border: 1px solid black;
+    border-radius: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0px;
+}

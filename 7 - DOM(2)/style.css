@@ -1,0 +1,13 @@
+.box{
+    height: 200px;
+    width: 200px;
+    background: red;
+    border: 1px solid black;
+    text-align: center;
+    color: white;
+}
+
+#insertTags{
+    background-color: hotpink;
+    padding: 50px;
+}
