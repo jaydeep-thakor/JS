@@ -9,39 +9,108 @@
 // fullfilled 
 // rejected
 
-// const getNewData = (data) => {
+// example 1
+// const getApiData = () => {
 //     return new Promise((resolve, reject)=>{
-//         setTimeout(()=>{
-//             console.log(data)
-//             resolve("success");
-//         }, 2000)
+//         console.log("fetching data");
+//         // resolve("success");
+//         reject("error")
 //     })
 // }
 
-// let finalResult = getNewData("some data");
-// console.log(finalResult)
-// setTimeout(()=>{
-//     console.log(finalResult)
-// },3000);
+// const finalApiData = getApiData();
 
-const getApiData = () => {
-    return new Promise((resolve, reject)=>{
+// finalApiData.then((res)=>{
+//     console.log("received api data, performing some tasks on it");
+//     console.log(res)
+// }).catch((rej)=>{
+//     console.log("failed to fetch api data");
+//     console.log(rej)
+// })
 
-        console.log("fetching data");
-        // resolve("success");
-        reject("error")
 
+// example 2
+
+// function asyncFun1(){
+//     return new Promise((resolve,reject)=>{
+//         setTimeout(()=>{
+//             console.log("data 1")
+//             resolve();
+//         },3000)
+//     })
+// }
+
+// function asyncFun2(){
+//     return new Promise((resolve,reject)=>{
+//         setTimeout(()=>{
+//             console.log("data 2")
+//             resolve();
+//         },3000)
+//     })
+// }
+
+// let promise1 = asyncFun1();
+
+// console.log("fetching data 1");
+// promise1.then(()=>{
+//     console.log("received data 1")
+    
+//     let promise2 = asyncFun2();
+//     console.log("fetching data 2");
+//     promise2.then(()=>{
+//         console.log("received data 2")
+//     })
+// })
+
+// console.log("fetching data 1");
+// asyncFun1().then(()=>{
+//     console.log("received data 1");
+
+//     console.log("fetching data 2");
+//     asyncFun2().then(()=>{
+//         console.log("received data 2")
+//     })
+// })
+
+// example 3
+
+const getDummyData = (dataNumber) => {
+    return new Promise((resolve,reject)=>{
+        setTimeout(()=>{
+            console.log("data = ",dataNumber);
+            resolve("successfully resolved", dataNumber)
+        },2500)
     })
 }
 
-const finalApiData = getApiData();
+// getDummyData(1).then((res)=>{
+//     console.log(res);
+//     getDummyData(2).then((res)=>{
+//         console.log(res);
+//         getDummyData(3).then((res)=>{
+//             console.log(res);
+//             getDummyData(4).then((res)=>{
+//                 console.log(res)
+//             })
+//         })
+//     })
+// })
 
-finalApiData.then((res)=>{
-    console.log("received api data, performing some tasks on it");
-    console.log(res)
-}).catch((rej)=>{
-    console.log("failed to fetch api data");
-    console.log(rej)
+// better way to write this is to
+// promise chain
+getDummyData(1).then(()=>{
+    return getDummyData(2);
+}).then(()=>{
+    return getDummyData(3);
+}).then(()=>{
+    return getDummyData(4);
+}).then((res)=>{
+     console.log(res);
 })
+
+
+
+
+
 
 
