@@ -9,25 +9,39 @@
 // fullfilled 
 // rejected
 
-// let promise = new Promise((resolve, reject)=>{
-//     console.log("promise resolved");
-//     resolve("success")
-// })
+// const getNewData = (data) => {
+//     return new Promise((resolve, reject)=>{
+//         setTimeout(()=>{
+//             console.log(data)
+//             resolve("success");
+//         }, 2000)
+//     })
+// }
 
-const getNewData = (data) => {
+// let finalResult = getNewData("some data");
+// console.log(finalResult)
+// setTimeout(()=>{
+//     console.log(finalResult)
+// },3000);
+
+const getApiData = () => {
     return new Promise((resolve, reject)=>{
-        setTimeout(()=>{
-            console.log(data)
-            resolve("success");
-        }, 2000)
+
+        console.log("fetching data");
+        // resolve("success");
+        reject("error")
+
     })
 }
 
-let finalResult = getNewData("some data");
-console.log(finalResult)
-setTimeout(()=>{
-    console.log(finalResult)
-},3000)
+const finalApiData = getApiData();
 
+finalApiData.then((res)=>{
+    console.log("received api data, performing some tasks on it");
+    console.log(res)
+}).catch((rej)=>{
+    console.log("failed to fetch api data");
+    console.log(rej)
+})
 
 
