@@ -26,7 +26,7 @@
 // let originalPrice2 = [250, 645, 300, 900, 50];
 
 // for(let i = 0; i<originalPrice2.length; i++){
-//     let discount = originalPrice2[i]/10; 
+//     let discount = (originalPrice2[i] * 10)/100;
 //     originalPrice2[i] = originalPrice2[i] - discount;
 // }
 
