@@ -53,3 +53,33 @@ companies.push("amazon")
 console.log(companies)
 
 
+// Que 4 - discount calculator
+let price = [];
+
+let discount = parseInt(prompt("enter discount = "));
+let arrItems = parseInt(prompt("enter length = "));
+
+for(let i = 0; i<arrItems; i++){
+    let value = parseInt(prompt("enter price"));
+    price.push(value);
+}
+
+console.log("price before discount", price);
+
+const calculateDiscount = (discount) => {
+    
+    for(let i = 0; i<price.length; i++){
+        
+        let result = price[i] / discount;
+        
+        price[i] = price[i] - result;
+        
+    }
+    
+}
+calculateDiscount(discount);
+console.log("price after discount", price);
+
+
+
+
